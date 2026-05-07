@@ -1,0 +1,1307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Michael Zevallos — Africa & Seychelles | Chelo Travel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #FAF8F5;
+            --text: #2C2C2C;
+            --text-light: #6B6B6B;
+            --text-muted: #999;
+            --accent: #B8860B;
+            --accent-light: #D4A843;
+            --safari: #5C4A32;
+            --ocean: #1A5276;
+            --card-bg: #FFFFFF;
+            --divider: #E8E2D9;
+            --cream: #F5F0E8;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-weight: 400;
+            line-height: 1.3;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background:
+                linear-gradient(180deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.5) 100%),
+                url('https://images.unsplash.com/photo-1516426122078-c23e76b4571f?w=1920&q=80') center/cover no-repeat;
+            background-attachment: fixed;
+            z-index: -1;
+        }
+
+        @supports (-webkit-touch-callout: none) {
+            .hero::before { background-attachment: scroll; }
+        }
+
+        .hero-content {
+            max-width: 700px;
+            padding: 0 24px;
+        }
+
+        .hero-brand {
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+            font-size: 0.85rem;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+            opacity: 0.85;
+            margin-bottom: 32px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 400;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent-light);
+        }
+
+        .hero-dates {
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            opacity: 0.8;
+            margin-top: 8px;
+        }
+
+        .hero-subtitle {
+            font-size: 1.1rem;
+            font-weight: 300;
+            opacity: 0.75;
+            margin-top: 24px;
+            font-style: italic;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s ease infinite;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 24px;
+            height: 24px;
+            border-right: 1.5px solid rgba(255,255,255,0.6);
+            border-bottom: 1.5px solid rgba(255,255,255,0.6);
+            transform: rotate(45deg);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-12px); }
+            60% { transform: translateX(-50%) translateY(-6px); }
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+
+        section h2 {
+            font-size: clamp(1.6rem, 3vw, 2.2rem);
+            margin-bottom: 48px;
+            color: var(--text);
+        }
+
+        /* ===== OVERVIEW ===== */
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            margin-bottom: 48px;
+        }
+
+        .overview-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 40px 36px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+            border-top: 3px solid var(--safari);
+            transition: transform 0.3s ease;
+        }
+
+        .overview-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .overview-card.ocean {
+            border-top-color: var(--ocean);
+        }
+
+        .overview-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .overview-card .location {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .overview-card .nights {
+            display: inline-block;
+            background: var(--cream);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text);
+        }
+
+        .overview-card p {
+            margin-top: 16px;
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .summary-bar {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            padding: 32px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+        }
+
+        .summary-item {
+            text-align: center;
+        }
+
+        .summary-item .number {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--accent);
+            display: block;
+        }
+
+        .summary-item .label {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        /* ===== TIMELINE ===== */
+        .timeline-section {
+            background: var(--card-bg);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 48px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 16px;
+            top: 8px;
+            bottom: 8px;
+            width: 1px;
+            background: var(--divider);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 48px;
+        }
+
+        .timeline-item:last-child {
+            padding-bottom: 0;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 6px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: var(--safari);
+            border: 3px solid var(--card-bg);
+            box-shadow: 0 0 0 1px var(--safari);
+        }
+
+        .timeline-item.ocean::before {
+            background: var(--ocean);
+            box-shadow: 0 0 0 1px var(--ocean);
+        }
+
+        .timeline-item.transit::before {
+            background: var(--text-muted);
+            box-shadow: 0 0 0 1px var(--text-muted);
+            width: 10px;
+            height: 10px;
+            left: -38px;
+            top: 8px;
+        }
+
+        .timeline-item.city::before {
+            background: var(--accent);
+            box-shadow: 0 0 0 1px var(--accent);
+        }
+
+        .timeline-date {
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 4px;
+        }
+
+        .timeline-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+
+        .timeline-desc {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* ===== WETU LINK ===== */
+        .wetu-link {
+            text-align: center;
+            margin-top: 48px;
+            padding: 32px;
+            background: var(--bg);
+            border-radius: 12px;
+            border: 1px solid var(--divider);
+        }
+
+        .wetu-link a {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .wetu-link a:hover {
+            color: var(--safari);
+        }
+
+        .wetu-link span {
+            display: block;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
+        /* ===== ACCOMMODATIONS ===== */
+        .accom-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+        }
+
+        .accom-card {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            height: 420px;
+            display: flex;
+            align-items: flex-end;
+            transition: transform 0.3s ease;
+        }
+
+        .accom-card:hover {
+            transform: scale(1.02);
+        }
+
+        .accom-card.full-width {
+            grid-column: 1 / -1;
+            height: 480px;
+        }
+
+        .accom-card img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .accom-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .accom-card .overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 60%);
+        }
+
+        .accom-info {
+            position: relative;
+            z-index: 1;
+            padding: 36px;
+            color: #fff;
+            width: 100%;
+        }
+
+        .accom-info .tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(4px);
+            padding: 4px 14px;
+            border-radius: 20px;
+            margin-bottom: 12px;
+        }
+
+        .accom-info h3 {
+            font-size: 1.6rem;
+            margin-bottom: 4px;
+            color: #fff;
+        }
+
+        .accom-info .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* ===== AMENITIES ===== */
+        .amenities-section {
+            background: var(--card-bg);
+        }
+
+        .amenities-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #FBF7F0 0%, #F5F0E8 100%);
+            border-radius: 12px;
+            padding: 48px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .amenities-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .amenities-box .property-name {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
+
+        .amenity-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .amenity-item:last-child {
+            border-bottom: none;
+        }
+
+        .amenity-check {
+            flex-shrink: 0;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px;
+        }
+
+        .amenity-check::after {
+            content: '';
+            width: 6px;
+            height: 10px;
+            border-right: 2px solid #fff;
+            border-bottom: 2px solid #fff;
+            transform: rotate(45deg) translateY(-1px);
+        }
+
+        .amenity-text {
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .amenity-text .note {
+            display: block;
+            font-size: 0.82rem;
+            color: var(--text-light);
+            margin-top: 2px;
+        }
+
+        /* ===== FLIGHTS ===== */
+        .flights-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .flight-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 32px 36px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+            display: grid;
+            grid-template-columns: 1fr auto 1fr auto;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .flight-route {
+            text-align: center;
+        }
+
+        .flight-route .code {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text);
+        }
+
+        .flight-route .city {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .flight-path {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            min-width: 120px;
+        }
+
+        .flight-path .line {
+            flex: 1;
+            height: 1px;
+            background: var(--divider);
+            position: relative;
+        }
+
+        .flight-path .line::after {
+            content: '✈';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1rem;
+            color: var(--accent);
+        }
+
+        .flight-path .stop {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        .flight-details {
+            text-align: right;
+        }
+
+        .flight-details .airline {
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .flight-details .meta {
+            font-size: 0.82rem;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .flight-details .class-badge {
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 3px 12px;
+            border-radius: 20px;
+        }
+
+        .flight-fee {
+            text-align: center;
+            margin-top: 8px;
+            font-size: 0.82rem;
+            color: var(--text-light);
+        }
+
+        .advisory {
+            margin-top: 36px;
+            background: #FFFCF0;
+            border-left: 4px solid var(--accent-light);
+            border-radius: 0 8px 8px 0;
+            padding: 20px 28px;
+        }
+
+        .advisory h4 {
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 6px;
+        }
+
+        .advisory p {
+            font-size: 0.88rem;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* ===== PRICING ===== */
+        .pricing-section {
+            background: var(--card-bg);
+        }
+
+        .pricing-table {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pricing-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 18px 0;
+            border-bottom: 1px solid var(--divider);
+        }
+
+        .pricing-row:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-row.total {
+            border-top: 2px solid var(--text);
+            border-bottom: none;
+            margin-top: 8px;
+            padding-top: 24px;
+        }
+
+        .pricing-label {
+            font-size: 0.95rem;
+            color: var(--text);
+        }
+
+        .pricing-label .sub {
+            display: block;
+            font-size: 0.82rem;
+            color: var(--text-light);
+        }
+
+        .pricing-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .pricing-value.tbd {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--text-light);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .pricing-note {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--text);
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .footer h2 {
+            color: #fff;
+            font-size: 2rem;
+            margin-bottom: 40px;
+        }
+
+        .footer-agent {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 4px;
+        }
+
+        .footer-company {
+            font-size: 0.85rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent-light);
+            margin-bottom: 24px;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+
+        .footer-contact a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent-light);
+        }
+
+        .footer-address {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 16px;
+        }
+
+        .footer-tagline {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.5);
+            margin-top: 32px;
+        }
+
+        .footer-affiliate {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.3);
+            margin-top: 16px;
+        }
+
+        /* ===== FADE IN ===== */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            section { padding: 64px 0; }
+
+            .overview-grid { grid-template-columns: 1fr; }
+
+            .summary-bar {
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .accom-grid { grid-template-columns: 1fr; }
+            .accom-card { height: 320px; }
+            .accom-card.full-width { height: 360px; }
+
+            .flight-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 16px;
+            }
+
+            .flight-details { text-align: center; }
+
+            .flight-path {
+                justify-content: center;
+                min-width: unset;
+            }
+
+            .footer-contact {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .amenities-box { padding: 32px 24px; }
+        }
+
+        /* ===== PRINT ===== */
+        @media print {
+            .hero { height: auto; min-height: auto; padding: 48px 0; color: var(--text); }
+            .hero::before { display: none; }
+            .hero h1 em { color: var(--accent); }
+            .fade-in { opacity: 1; transform: none; }
+            .scroll-indicator { display: none; }
+            section { padding: 32px 0; page-break-inside: avoid; }
+            .accom-card { height: 250px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-brand">Chelo Travel</div>
+            <h1>A Journey Crafted for<br><em>Michael Zevallos</em></h1>
+            <div class="hero-dates">May 8 — 26, 2026</div>
+            <p class="hero-subtitle">Safari & Beach — Africa & Seychelles</p>
+        </div>
+        <div class="scroll-indicator"><span></span></div>
+    </section>
+
+    <!-- ===== TRIP OVERVIEW ===== -->
+    <section>
+        <div class="container">
+            <div class="section-label fade-in">Your Journey</div>
+            <h2 class="fade-in">Two Worlds, One Unforgettable Trip</h2>
+
+            <div class="overview-grid">
+                <div class="overview-card fade-in">
+                    <h3>The Safari</h3>
+                    <div class="location">Kenya</div>
+                    <span class="nights">8 Nights · 4 Properties</span>
+                    <p>From the elegance of Hemingways Nairobi to the wild majesty of Chyulu Hills and the Masai Mara. Private plunge pools, rooftop star beds, Big Five encounters, and Relais & Ch&acirc;teaux dining across two of Africa's most exclusive safari lodges.</p>
+                </div>
+                <div class="overview-card ocean fade-in">
+                    <h3>The Beach</h3>
+                    <div class="location">Seychelles</div>
+                    <span class="nights">4 Nights · Cheval Blanc</span>
+                    <p>Unwind at LVMH's newest Indian Ocean retreat on Mah&eacute;'s Anse Intendance beach. 52 private villas, world-class dining, and the legendary hospitality of Cheval Blanc. Virtuoso amenities included.</p>
+                </div>
+            </div>
+
+            <div class="summary-bar fade-in">
+                <div class="summary-item">
+                    <span class="number">2</span>
+                    <span class="label">Travelers</span>
+                </div>
+                <div class="summary-item">
+                    <span class="number">12</span>
+                    <span class="label">Nights</span>
+                </div>
+                <div class="summary-item">
+                    <span class="number">4</span>
+                    <span class="label">Destinations</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ITINERARY TIMELINE ===== -->
+    <section class="timeline-section">
+        <div class="container">
+            <div class="section-label fade-in">Itinerary</div>
+            <h2 class="fade-in">Day by Day</h2>
+
+            <div class="timeline fade-in">
+                <div class="timeline-item transit">
+                    <div class="timeline-date">May 8 – 9</div>
+                    <div class="timeline-title">Miami → Nairobi</div>
+                    <div class="timeline-desc">Overnight flight. Arrive evening of May 9th.</div>
+                </div>
+                <div class="timeline-item city">
+                    <div class="timeline-date">May 9</div>
+                    <div class="timeline-title">Hemingways Nairobi</div>
+                    <div class="timeline-desc">Transfer to Hemingways in the leafy Karen suburb. 1 night in a Deluxe Room. Settle in with views of the Ngong Hills.</div>
+                </div>
+                <div class="timeline-item city">
+                    <div class="timeline-date">May 10</div>
+                    <div class="timeline-title">Nairobi Sightseeing</div>
+                    <div class="timeline-desc">Full day exploring Nairobi. All entrance fees and lunch included.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 11 – 14</div>
+                    <div class="timeline-title">Ol Donyo Lodge · Chyulu Hills</div>
+                    <div class="timeline-desc">Fly by light aircraft to the Chyulu Hills. 3 nights in a Deluxe Pool Suite. Private plunge pool, rooftop star bed, Kilimanjaro views. All meals, game drives, and activities included.</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">May 14 – 16</div>
+                    <div class="timeline-title">Mara Plains Camp · Masai Mara</div>
+                    <div class="timeline-desc">Fly via Nairobi to the Olare Motorogi Conservancy. 3 nights in a Camp Suite. Canvas tents on elevated wooden decks overlooking the savanna. All meals and game viewing included.</div>
+                </div>
+                <div class="timeline-item transit">
+                    <div class="timeline-date">May 16</div>
+                    <div class="timeline-title">Nairobi · Airport Overnight</div>
+                    <div class="timeline-desc">Fly back to Nairobi. Overnight at Four Points Sheraton at the airport for an early departure.</div>
+                </div>
+                <div class="timeline-item transit">
+                    <div class="timeline-date">May 17</div>
+                    <div class="timeline-title">Nairobi → Seychelles</div>
+                    <div class="timeline-desc">08:40 AM departure from Jomo Kenyatta International. Transfer to Cheval Blanc upon arrival in Mah&eacute;.</div>
+                </div>
+                <div class="timeline-item ocean">
+                    <div class="timeline-date">May 17 – 21</div>
+                    <div class="timeline-title">Cheval Blanc Seychelles</div>
+                    <div class="timeline-desc">4 nights of pure relaxation on Anse Intendance beach. Pristine waters, spa, world-class dining. Virtuoso amenities included.</div>
+                </div>
+                <div class="timeline-item transit">
+                    <div class="timeline-date">May 21 – 26</div>
+                    <div class="timeline-title">Return to Miami</div>
+                    <div class="timeline-desc">Departure from Seychelles. Routing and connections to be confirmed.</div>
+                </div>
+            </div>
+
+            <div class="wetu-link fade-in">
+                <a href="https://wetu.com/Itinerary/Landing/28547db7-e519-492a-8bc5-934061123caa" target="_blank" rel="noopener">
+                    View Full Detailed Itinerary →
+                </a>
+                <span>Interactive day-by-day program with photos, maps, and property details</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== ACCOMMODATIONS ===== -->
+    <section>
+        <div class="container">
+            <div class="section-label fade-in">Where You'll Stay</div>
+            <h2 class="fade-in">Handpicked Accommodations</h2>
+
+            <div class="accom-grid">
+                <div class="accom-card fade-in">
+                    <img src="https://images.unsplash.com/photo-1611892440504-42a792e24d32?w=800&q=80" alt="Hemingways Nairobi">
+                    <div class="overlay"></div>
+                    <div class="accom-info">
+                        <span class="tag">City · 1 Night</span>
+                        <h3>Hemingways Nairobi</h3>
+                        <div class="subtitle">Karen, Nairobi · Deluxe Room · Small Luxury Hotels</div>
+                    </div>
+                </div>
+                <div class="accom-card fade-in">
+                    <img src="https://greatplainsconservation.com/wp-content/uploads/2023/09/great-plains-ol-donyo-lodge-deck-with-guests.jpg" alt="Ol Donyo Lodge">
+                    <div class="overlay"></div>
+                    <div class="accom-info">
+                        <span class="tag">Safari · 3 Nights</span>
+                        <h3>Ol Donyo Lodge</h3>
+                        <div class="subtitle">Chyulu Hills · Deluxe Pool Suite · Relais & Ch&acirc;teaux</div>
+                    </div>
+                </div>
+                <div class="accom-card fade-in">
+                    <img src="https://greatplainsconservation.com/wp-content/uploads/2023/09/great-plains-mara-plains-camp.jpg" alt="Mara Plains Camp">
+                    <div class="overlay"></div>
+                    <div class="accom-info">
+                        <span class="tag">Safari · 3 Nights</span>
+                        <h3>Mara Plains Camp</h3>
+                        <div class="subtitle">Olare Motorogi Conservancy · Camp Suite · Relais & Ch&acirc;teaux</div>
+                    </div>
+                </div>
+                <div class="accom-card full-width fade-in">
+                    <img src="https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?w=1200&q=80" alt="Cheval Blanc Seychelles">
+                    <div class="overlay"></div>
+                    <div class="accom-info">
+                        <span class="tag">Beach · 4 Nights</span>
+                        <h3>Cheval Blanc</h3>
+                        <div class="subtitle">Mah&eacute;, Seychelles · Virtuoso Property · LVMH</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== VIRTUOSO AMENITIES ===== -->
+    <section class="amenities-section">
+        <div class="container">
+            <div class="section-label fade-in">Exclusive Benefits</div>
+            <h2 class="fade-in">Virtuoso Amenities</h2>
+
+            <div class="amenities-box fade-in">
+                <h3>Included with Your Stay</h3>
+                <div class="property-name">Cheval Blanc Seychelles</div>
+
+                <div class="amenity-item">
+                    <div class="amenity-check"></div>
+                    <div class="amenity-text">
+                        Room upgrade on arrival
+                        <span class="note">Subject to availability</span>
+                    </div>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-check"></div>
+                    <div class="amenity-text">
+                        Daily full breakfast for two
+                        <span class="note">Served in the restaurant or via in-room dining</span>
+                    </div>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-check"></div>
+                    <div class="amenity-text">
+                        $100 USD Food & Beverage credit
+                        <span class="note">Utilized during stay · Not combinable · No cash value</span>
+                    </div>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-check"></div>
+                    <div class="amenity-text">
+                        Early check-in & late check-out
+                        <span class="note">Subject to availability</span>
+                    </div>
+                </div>
+                <div class="amenity-item">
+                    <div class="amenity-check"></div>
+                    <div class="amenity-text">Complimentary Wi-Fi</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FLIGHTS ===== -->
+    <section>
+        <div class="container">
+            <div class="section-label fade-in">Getting There</div>
+            <h2 class="fade-in">Flight Options</h2>
+
+            <div class="flights-grid">
+                <!-- Flight 1: Miami to Nairobi -->
+                <div class="flight-card fade-in">
+                    <div class="flight-route">
+                        <div class="code">MIA</div>
+                        <div class="city">Miami</div>
+                    </div>
+                    <div class="flight-path">
+                        <div class="line"></div>
+                        <div class="stop">1 stop</div>
+                    </div>
+                    <div class="flight-route">
+                        <div class="code">NBO</div>
+                        <div class="city">Nairobi</div>
+                    </div>
+                    <div class="flight-details">
+                        <div class="airline">Emirates</div>
+                        <div class="meta">May 8 → May 9 (evening arrival)</div>
+                        <div class="meta">Via Dubai</div>
+                        <span class="class-badge">Business Class</span>
+                    </div>
+                </div>
+                <div class="flight-fee">+ Ticketing Fee: $250.00 per person</div>
+
+                <!-- Flight 2: Nairobi to Seychelles -->
+                <div class="flight-card fade-in">
+                    <div class="flight-route">
+                        <div class="code">NBO</div>
+                        <div class="city">Nairobi</div>
+                    </div>
+                    <div class="flight-path">
+                        <div class="line"></div>
+                        <div class="stop">direct</div>
+                    </div>
+                    <div class="flight-route">
+                        <div class="code">SEZ</div>
+                        <div class="city">Seychelles</div>
+                    </div>
+                    <div class="flight-details">
+                        <div class="airline">To be confirmed</div>
+                        <div class="meta">May 17</div>
+                        <span class="class-badge">Business Class</span>
+                    </div>
+                </div>
+                <div class="flight-fee">+ Ticketing Fee: $250.00 per person</div>
+
+                <!-- Flight 3: Seychelles Return -->
+                <div class="flight-card fade-in">
+                    <div class="flight-route">
+                        <div class="code">SEZ</div>
+                        <div class="city">Seychelles</div>
+                    </div>
+                    <div class="flight-path">
+                        <div class="line"></div>
+                        <div class="stop">via Abu Dhabi</div>
+                    </div>
+                    <div class="flight-route">
+                        <div class="code">MIA</div>
+                        <div class="city">Miami</div>
+                    </div>
+                    <div class="flight-details">
+                        <div class="airline">Etihad Airways</div>
+                        <div class="meta">May 21 → May 22</div>
+                        <span class="class-badge">Business Class</span>
+                    </div>
+                </div>
+                <div class="flight-fee">+ Ticketing Fee: $250.00 per person</div>
+            </div>
+
+            <div class="advisory fade-in">
+                <h4>Travel Advisory</h4>
+                <p>Etihad Airways routing through Abu Dhabi may be subject to operational changes depending on the evolving geopolitical situation in the region. We are monitoring this closely and will adjust routing if necessary to ensure your safety and comfort.</p>
+            </div>
+
+            <div class="advisory fade-in" style="margin-top: 16px;">
+                <h4>Light Aircraft Transfers</h4>
+                <p>Safari transfers between Nairobi, Chyulu Hills, and the Mara are via light aircraft. Passengers exceeding 77 kg (170 lbs) must advise in advance, as an additional seat may need to be arranged. One complimentary travel bag per person is included, with free shipping to North America.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== INVESTMENT ===== -->
+    <section class="pricing-section">
+        <div class="container">
+            <div class="section-label fade-in">Investment</div>
+            <h2 class="fade-in">Trip Summary</h2>
+
+            <div class="pricing-table fade-in">
+                <div class="pricing-row">
+                    <div class="pricing-label">
+                        Kenya Safari Program
+                        <span class="sub">Hemingways (1N) + Ol Donyo Lodge (3N) + Mara Plains (3N) + Sheraton Airport (1N) · All transfers & light aircraft</span>
+                    </div>
+                    <div class="pricing-value">$36,827</div>
+                </div>
+                <div class="pricing-row">
+                    <div class="pricing-label">
+                        Trip Planning & Organization
+                        <span class="sub">Flat fee — includes full itinerary design & coordination</span>
+                    </div>
+                    <div class="pricing-value">$1,250</div>
+                </div>
+                <div class="pricing-row">
+                    <div class="pricing-label">
+                        Ticketing Fees
+                        <span class="sub">$250 per ticket × multiple segments</span>
+                    </div>
+                    <div class="pricing-value">$250 / ticket</div>
+                </div>
+                <div class="pricing-row">
+                    <div class="pricing-label">
+                        International Flights
+                        <span class="sub">Miami–Nairobi · Nairobi–Seychelles · Seychelles–Miami</span>
+                    </div>
+                    <div class="pricing-value tbd">Quoted upon booking</div>
+                </div>
+                <div class="pricing-row">
+                    <div class="pricing-label">
+                        Cheval Blanc Seychelles
+                        <span class="sub">4 nights · Virtuoso amenities included</span>
+                    </div>
+                    <div class="pricing-value tbd">Quoted upon confirmation</div>
+                </div>
+            </div>
+
+            <p class="pricing-note">Safari pricing is for 2 travelers. All prices in USD. Payment terms and cancellation policies provided upon confirmation.</p>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="container">
+            <h2>Ready to Begin Your Journey?</h2>
+            <div class="footer-agent">Marcelo Rosen</div>
+            <div class="footer-company">Chelo Travel</div>
+            <div class="footer-contact">
+                <a href="tel:+17862088871">+1 786 208-8871</a>
+                <a href="mailto:mrosen@chelotravel.com">mrosen@chelotravel.com</a>
+            </div>
+            <div class="footer-address">19495 Biscayne Blvd, Suite 401 · Aventura, FL 33180</div>
+            <div class="footer-tagline">"Travel and Enjoy Pleasure, an Amazing Experience is Coming…!"</div>
+            <div class="footer-affiliate">An independent affiliate of Travel Experts, Inc.</div>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll fade-in animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
+
+    <!--
+    ============================================
+    TRIP DATA (for future template automation)
+    ============================================
+    -->
+    <script type="application/json" id="trip-data">
+    {
+        "client": {
+            "name": "Michael Zevallos",
+            "email": "z@gigglefinance.com",
+            "party_size": 2
+        },
+        "trip": {
+            "title": "Africa & Seychelles",
+            "dates": { "start": "2026-05-08", "end": "2026-05-26" },
+            "total_nights": 12,
+            "wetu_link": "https://wetu.com/Itinerary/Landing/28547db7-e519-492a-8bc5-934061123caa"
+        },
+        "itinerary": [
+            {
+                "type": "transit",
+                "dates": { "start": "2026-05-08", "end": "2026-05-09" },
+                "title": "Miami → Nairobi",
+                "description": "Overnight flight, evening arrival"
+            },
+            {
+                "type": "city",
+                "dates": { "start": "2026-05-09", "end": "2026-05-10" },
+                "title": "Hemingways Nairobi",
+                "nights": 1,
+                "location": "Karen, Nairobi",
+                "room": "Deluxe Room",
+                "meal_plan": "BB"
+            },
+            {
+                "type": "city",
+                "dates": { "start": "2026-05-10", "end": "2026-05-10" },
+                "title": "Nairobi Sightseeing",
+                "description": "All entrance fees and lunch included"
+            },
+            {
+                "type": "safari",
+                "dates": { "start": "2026-05-11", "end": "2026-05-14" },
+                "title": "Ol Donyo Lodge",
+                "nights": 3,
+                "location": "Chyulu Hills, Kenya",
+                "room": "Deluxe Pool Suite",
+                "meal_plan": "All-inclusive",
+                "operator": "Great Plains Conservation",
+                "transfer": "Light aircraft from Nairobi"
+            },
+            {
+                "type": "safari",
+                "dates": { "start": "2026-05-14", "end": "2026-05-16" },
+                "title": "Mara Plains Camp",
+                "nights": 3,
+                "location": "Olare Motorogi Conservancy, Masai Mara",
+                "room": "Camp Suite",
+                "meal_plan": "All-inclusive",
+                "operator": "Great Plains Conservation",
+                "transfer": "Light aircraft via Nairobi"
+            },
+            {
+                "type": "transit",
+                "dates": { "start": "2026-05-16", "end": "2026-05-17" },
+                "title": "Four Points Sheraton NBO Airport",
+                "nights": 1,
+                "room": "Suite",
+                "meal_plan": "BB",
+                "description": "Airport overnight for early Seychelles departure"
+            },
+            {
+                "type": "transit",
+                "dates": { "start": "2026-05-17", "end": "2026-05-17" },
+                "title": "Nairobi → Seychelles",
+                "description": "08:40 AM departure from JKIA"
+            },
+            {
+                "type": "beach",
+                "dates": { "start": "2026-05-17", "end": "2026-05-21" },
+                "title": "Cheval Blanc Seychelles",
+                "nights": 4,
+                "location": "Mahé, Seychelles",
+                "meal_plan": "Virtuoso"
+            },
+            {
+                "type": "transit",
+                "dates": { "start": "2026-05-21", "end": "2026-05-26" },
+                "title": "Return to Miami"
+            }
+        ],
+        "pricing": {
+            "safari_program": 36827.46,
+            "planning_fee": 1250,
+            "ticketing_fee_per_ticket": 250
+        },
+        "advisories": {
+            "etihad": "Routing via Abu Dhabi subject to geopolitical situation",
+            "light_aircraft_weight": "77kg / 170lbs per passenger",
+            "travel_bags": "1 per person, free shipping to North America"
+        },
+        "agent": {
+            "name": "Marcelo Rosen",
+            "company": "Chelo Travel",
+            "phone": "+1 786 208-8871",
+            "email": "mrosen@chelotravel.com",
+            "address": "19495 Biscayne Blvd, Suite 401, Aventura, FL 33180"
+        }
+    }
+    </script>
+
+</body>
+</html>
