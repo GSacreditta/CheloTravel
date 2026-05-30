@@ -19,6 +19,22 @@ licensed for advisor-built client materials — using Marcelo's live, logged-in
 browser session, and **prove every URL is hotlink-safe before it touches
 Notion.**
 
+This is an **on-demand recovery skill**, not part of the generation pipeline.
+The proposal generator stays unaware of it: when a proposal renders
+"IMAGE PENDING", Marcelo invokes this skill from chat, it fills the missing
+images, and he regenerates. It lives in the CheloTravel Claude Project as a
+skill — it is **not** wired into `prompts/proposal-generator.md`.
+
+## How Marcelo invokes it
+
+In plain chat, when a proposal comes back with placeholders, e.g.:
+- "The Basque proposal has image pending — source the photos from Virtuoso."
+- "Find images for the Regent Porto Montenegro and add them to Notion."
+- "Fix the missing hotel photos on the Abramzon proposal."
+
+Marcelo names the proposal or the properties; the skill does the rest and tells
+him when he can regenerate.
+
 ## Why this skill exists
 
 The automated crawl in `prompts/proposal-generator.md` (tier-2) fails on chain

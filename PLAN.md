@@ -222,8 +222,9 @@ ACQUIRE → CAPTURE → IDEATE → AVAILABILITY → PRICING → FINAL → BOOK �
 ### Phase 4: Claude Chat Project Setup
 1. Create Claude Chat project "CheloTravel"
 2. Upload all prompt files as project knowledge
-3. Connect MCP integrations: **Notion** + **Google Drive** (Drive MCP must have write access to `Propuestas/`). GitHub MCP is NOT used.
-4. Test full end-to-end workflow
+3. Add the `virtuoso-image-sourcing` skill to the project (on-demand image recovery; requires the Claude for Chrome browser tool + Marcelo signed in to the Virtuoso portal)
+4. Connect MCP integrations: **Notion** + **Google Drive** (Drive MCP must have write access to `Propuestas/`). GitHub MCP is NOT used.
+5. Test full end-to-end workflow
 
 ### Phase 5: Onboarding Marcelo
 1. Walk through the workflow
@@ -257,6 +258,14 @@ ACQUIRE → CAPTURE → IDEATE → AVAILABILITY → PRICING → FINAL → BOOK �
 - `prompts/client-intake.md` — Client intake prompt
 - `prompts/trip-builder.md` — Trip builder prompt
 - `prompts/proposal-generator.md` — Proposal generator prompt (includes full design system)
+
+### Skills (Claude Project — invoked on demand by Marcelo)
+- `skills/virtuoso-image-sourcing/` — recovery skill for when a proposal renders
+  "IMAGE PENDING". Marcelo invokes it in chat (e.g. "source the missing photos
+  for the Basque proposal"); it harvests vetted images from his authenticated
+  Virtuoso portal via Claude for Chrome, validates each URL is hotlink-safe from
+  a clean context (`scripts/validate_image.py`), and writes the survivors to the
+  Notion Asset record. **Standalone — not wired into the proposal generator.**
 
 ### Reference Proposals
 - `proposals/zevallos-africa-seychelles-2026.html` — Multi-destination (safari + beach)
