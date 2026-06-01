@@ -14,7 +14,7 @@ description: >-
 # Virtuoso Image Sourcing
 
 Fill missing property images by harvesting them from the **Virtuoso advisor
-portal** — where the imagery is professionally shot, chain-approved, and
+portal** https://www.virtuoso.com/ — where the imagery is professionally shot, chain-approved, and
 licensed for advisor-built client materials — using Marcelo's live, logged-in
 browser session, and **prove every URL is hotlink-safe before it touches
 Notion.**
@@ -60,7 +60,7 @@ solves both halves of that problem:
 ## Prerequisites
 
 - **Claude for Chrome** browser tool available, with Marcelo signed in to the
-  Virtuoso advisor portal in an open tab. If the browser tool is not available,
+  Virtuoso advisor portal https://www.virtuoso.com/ in an open tab. If the browser tool is not available,
   fall back to the manual flow at the end.
 - **Notion MCP** connected (to read the Asset records and write images back).
 - A list of properties needing images — either passed in, or the assets the
@@ -75,11 +75,10 @@ starting.
 
 ### 2. Locate each property in Virtuoso (Chrome, authenticated)
 For each queued property, in Marcelo's logged-in browser:
-- Navigate to the property's Virtuoso page (search the portal by hotel name +
+- Navigate to the property's Virtuoso page https://www.virtuoso.com (search the portal by hotel name +
   city). Confirm with Marcelo it's the right property if there's any ambiguity.
 - Open the photo gallery / media section.
-- Extract the **direct image-file URLs** — the actual `.jpg/.png/.webp` the CDN
-  serves, not the gallery *page* URL. Pull from `<img src>`, `srcset` (take the
+- Extract the **direct file URLs** — from the actual photo gallery *image* URL. Pull from `<img src>`, `srcset` (take the
   largest candidate), and any lightbox/`data-*` full-res attributes. Prefer
   hero/exterior, a signature suite/room, dining, pool/spa, and a signature view.
   Aim for 6–10 candidates so enough survive validation.
