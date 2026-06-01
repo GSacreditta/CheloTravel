@@ -222,7 +222,7 @@ ACQUIRE → CAPTURE → IDEATE → AVAILABILITY → PRICING → FINAL → BOOK �
 ### Phase 4: Claude Chat Project Setup
 1. Create Claude Chat project "CheloTravel"
 2. Upload all prompt files as project knowledge
-3. Add the `virtuoso-image-sourcing` skill to the project (on-demand image recovery; requires the Claude for Chrome browser tool + Marcelo signed in to the Virtuoso portal)
+3. Add the `virtuoso-image-sourcing` skill to the project (on-demand image recovery; requires the Claude for Chrome browser tool + Marcelo signed in to the Virtuoso portal) — setup steps in [skills/virtuoso-image-sourcing/README.md](skills/virtuoso-image-sourcing/README.md)
 4. Connect MCP integrations: **Notion** + **Google Drive** (Drive MCP must have write access to `Propuestas/`). GitHub MCP is NOT used.
 5. Test full end-to-end workflow
 
@@ -261,7 +261,7 @@ ACQUIRE → CAPTURE → IDEATE → AVAILABILITY → PRICING → FINAL → BOOK �
 
 ### Skills (Claude Project — invoked on demand by Marcelo)
 - `skills/virtuoso-image-sourcing/` — recovery skill for when a proposal renders
-  "IMAGE PENDING". Marcelo invokes it in chat (e.g. "source the missing photos
+  "IMAGE PENDING" (install/setup in its `README.md`). Marcelo invokes it in chat (e.g. "source the missing photos
   for the Basque proposal"); it harvests vetted images from his authenticated
   Virtuoso portal via Claude for Chrome, validates each URL is hotlink-safe from
   a clean context (`scripts/validate_image.py`), and writes the survivors to the
