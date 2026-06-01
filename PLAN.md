@@ -33,7 +33,7 @@ Chelo Travel is Marcelo Rosen's solo luxury travel agency (Miami, Virtuoso partn
 5. Claude tells Marcelo the live URL immediately (URL is deterministic; total latency to live is ~5 min)
 6. Claude updates Notion: Proposals DB record + Trip Card with URL + version history
 
-**Note:** GitHub MCP does NOT work reliably on claude.ai web (known platform limitation — see [Issue #549](https://github.com/github/github-mcp-server/issues/549)). The Drive → GitHub Actions bridge bypasses this entirely and removes any local watcher.
+**Note:** GitHub MCP does NOT work reliably on claude.ai web (known platform limitation — see [Issue #549](https://github.com/github/github-mcp-server/issues/549)). The Drive → GitHub bridge bypasses this entirely and removes any local watcher. Two interchangeable schedulers can drive it: the GitHub Actions `schedule:` cron in [`.github/workflows/sync-proposals.yml`](.github/workflows/sync-proposals.yml) and an Apps Script time-driven trigger ([`apps-script/`](apps-script/)). The Apps Script trigger is the more reliable option — GitHub's scheduled workflows are best-effort (delayed under load, queued runs can be dropped), so cron-driven deploys can land inconsistently.
 
 **Live infrastructure (operational as of April 2026):**
 - GitHub repo: `CheloTravel/Proposals` (private) — receives commits from the Apps Script sync
