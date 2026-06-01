@@ -83,6 +83,13 @@ For each queued property, in Marcelo's logged-in browser:
   largest candidate), and any lightbox/`data-*` full-res attributes. Prefer
   hero/exterior, a signature suite/room, dining, pool/spa, and a signature view.
   Aim for 6–10 candidates so enough survive validation.
+- **Virtuoso's CDN is the easy case.** Asset URLs on
+  `virtuoso-prod.dotcms.cloud/dA/<id>/<field>/<file>` are dotCMS binary-delivery
+  links that serve publicly and have tested **hotlink-safe** — reference them
+  directly, no download/rehost needed (still validate each in step 3). Note the
+  CDN also serves `featuredVideo` `.mp4` assets: those are **videos**, not
+  stills — the validator returns `video`, and they go in a `<video>` hero, never
+  an `<img>` slot.
 
 ### 3. Validate anonymously (clean sandbox — NOT the browser)
 Pass the candidate URLs to the validator in the code-execution context:
@@ -94,11 +101,14 @@ echo '["<url1>","<url2>", ...]' | python scripts/validate_image.py -
 It requests each URL with **no cookies** and a cross-site `Referer`, exactly as
 the public Vercel-hosted proposal will. Each result is one of:
 - `safe` — loads as a real image anonymously → eligible for Notion.
+- `video` — loads fine but is a video (e.g. a Virtuoso `featuredVideo` `.mp4`) →
+  not for an `<img>`; skip, or store for a `<video>` hero if wanted.
 - `protected` — 403/401, or bounced to HTML (login/homepage) → do NOT store the
   URL; route to the "own the bytes" fallback in step 4.
 - `broken` — dead, non-image, or too small (stub/tracker) → discard.
 
-Keep only `safe` URLs. Stop once you have 5–8 per property.
+Keep only `safe` URLs (and any `video` you deliberately want). Stop once you
+have 5–8 stills per property.
 
 ### 4. Handle the `protected` ones — own the bytes
 Even Virtuoso/CDN URLs can be hotlink-protected. When a wanted image is

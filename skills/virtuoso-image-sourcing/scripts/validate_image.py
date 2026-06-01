@@ -14,6 +14,8 @@ Output: JSON array of
     {url, verdict, status, content_type, bytes, reason}
   verdict is one of:
     "safe"      -> loads anonymously as a real image; OK to write to Notion
+    "video"     -> loads anonymously but is a video (e.g. Virtuoso featuredVideo
+                   .mp4); not for an <img> slot — skip or use a <video> hero
     "protected" -> blocked for third parties (403/401 or bounced to HTML)
     "broken"    -> dead link / not an image / too small to be a real photo
 """
@@ -30,6 +32,7 @@ MIN_BYTES = 5000  # reject 1px trackers and "image unavailable" stubs
 
 IMAGE_TYPES = ("image/jpeg", "image/jpg", "image/png", "image/webp",
                "image/avif", "image/gif")
+VIDEO_TYPES = ("video/mp4", "video/webm", "video/quicktime", "video/ogg")
 MAGIC = (b"\xff\xd8\xff", b"\x89PNG\r\n\x1a\n", b"GIF87a", b"GIF89a")
 
 
@@ -37,6 +40,11 @@ def _looks_like_image(head: bytes) -> bool:
     if head[:4] == b"RIFF" and head[8:12] == b"WEBP":
         return True
     return any(head.startswith(m) for m in MAGIC)
+
+
+def _looks_like_video(head: bytes) -> bool:
+    # ISO base media (mp4/mov) carries an 'ftyp' box; webm/mkv start with EBML.
+    return head[4:8] == b"ftyp" or head[:4] == b"\x1a\x45\xdf\xa3"
 
 
 def check(url: str) -> dict:
@@ -70,6 +78,12 @@ def check(url: str) -> dict:
         return {"url": url, "verdict": "protected", "status": status,
                 "content_type": ctype, "bytes": size,
                 "reason": "Returned HTML (redirect to login/homepage), not an image"}
+
+    # A real, anonymously-loadable video (e.g. Virtuoso featuredVideo .mp4).
+    if any(ctype.startswith(t) for t in VIDEO_TYPES) or _looks_like_video(head):
+        return {"url": url, "verdict": "video", "status": status,
+                "content_type": ctype or "video/*", "bytes": size,
+                "reason": "Video asset, not a still — use a <video> hero, not <img>"}
 
     is_image = _looks_like_image(head) or any(
         ctype.startswith(t) for t in IMAGE_TYPES) if ctype else _looks_like_image(head)
